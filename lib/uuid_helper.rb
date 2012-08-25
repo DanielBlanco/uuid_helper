@@ -1,4 +1,5 @@
 require "uuid_helper/version"
+require 'uuidtools'
 
 module UuidHelper
 
