@@ -42,7 +42,7 @@ NilClass
 
 ```console
 nil.to_uuid
-=> #<UUID:0xXXXXXXX UUID:3f3b4a40-3bf0-11e1-81f0-00137284c8df>  
+=> #<UUID:0xXXXXXXX UUID:00000000-0000-0000-0000-000000000000>
 ```
 
 ## Contributing
