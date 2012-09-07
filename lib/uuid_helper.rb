@@ -43,4 +43,35 @@ module UuidHelper
       end
     end
   end
+
+  UUIDTools::UUID.class_eval do
+    #
+    # Returns this object as it is. Basically allows you to use to_uuid in an 
+    # UUID object.
+    #
+    # It is easier for a method to just use param.to_uuid without 
+    # wondering if the param is_a? String, Nil or UUIDTools::UUID class.
+    #
+    def to_uuid
+      self
+    end
+  end 
+
+  Array.class_eval do
+    #
+    # Converts every item on the array to an UUIDTools::UUID object.
+    # Any value that does not respond to :to_uuid method will be 
+    # returned as nil.to_uuid
+    #
+    def to_uuid
+      self.map do |v|
+        if v.respond_to? :to_uuid
+          v.to_uuid
+        else
+          nil.to_uuid
+        end
+      end
+    end
+  end
+
 end
